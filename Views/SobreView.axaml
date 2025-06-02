@@ -1,0 +1,9 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="ProjetoAvalonia.Views.SobreView">
+    <StackPanel Margin="20" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
+        <TextBlock Text="Tela Sobre" FontSize="24" FontWeight="Bold"/>
+        <TextBlock Text="Desenvolvedor: Daniel" FontSize="16"/>
+        <TextBlock Text="Ano de desenvolvimento: 2025" FontSize="16"/>
+    </StackPanel>
+</UserControl>
