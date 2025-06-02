@@ -9,6 +9,8 @@ namespace AppHotel2.Views
         {
             InitializeComponent();
             this.DataContext = dados;
+
+            viewModel.FecharJanelaAction = Close
         }
 
         private void InitializeComponent()
