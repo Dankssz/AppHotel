@@ -1,0 +1,62 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:AppHotel2.ViewModels"
+        x:Class="AppHotel2.Views.ContratacaoHospedagem"
+        Title="Contratação Hospedagem"
+        Width="400" Height="600"
+        mc:Ignorable="d"
+        x:DataType="vm:ContratacaoHospedagemViewModel">
+
+  <ScrollViewer>
+    <StackPanel Margin="20" Spacing="10">
+
+      <TextBlock Text="Cálculo da Diária"
+                 FontFamily="Kalam"
+                 FontSize="36"
+                 Foreground="DarkBlue" />
+
+      <Grid ColumnDefinitions="Auto, Auto, *" RowDefinitions="Auto, Auto">
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Adultos:" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Adultos}" Foreground="DarkBlue" VerticalAlignment="Center" />
+        <NumericUpDown Grid.Row="0" Grid.Column="2" Minimum="0" Maximum="10" Value="{Binding Adultos, Mode=TwoWay}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Crianças:" VerticalAlignment="Center" />
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Criancas}" Foreground="DarkBlue" VerticalAlignment="Center" />
+        <NumericUpDown Grid.Row="1" Grid.Column="2" Minimum="0" Maximum="10" Value="{Binding Criancas, Mode=TwoWay}" />
+      </Grid>
+
+      <StackPanel Margin="10">
+        <TextBlock Text="Escolha sua Suíte" FontWeight="Bold" Foreground="DarkBlue" />
+        <ComboBox ItemsSource="{Binding Suites}"
+                  SelectedItem="{Binding SuiteSelecionada}">
+          <ComboBox.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Descricao}" />
+            </DataTemplate>
+          </ComboBox.ItemTemplate>
+        </ComboBox>
+      </StackPanel>
+
+      <StackPanel Margin="10" Spacing="5">
+        <TextBlock Text="Período da Estadia" FontWeight="Bold" Foreground="DarkBlue" />
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+          <TextBlock Text="Check-in:" VerticalAlignment="Center"/>
+          <DatePicker SelectedDate="{Binding Checkin, Mode=TwoWay}" />
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Spacing="10">
+          <TextBlock Text="Check-out:" VerticalAlignment="Center"/>
+          <DatePicker SelectedDate="{Binding Checkout, Mode=TwoWay}" />
+        </StackPanel>
+      </StackPanel>
+
+      <Button Content="Avançar"
+              Command="{Binding AvancarCommand}" />
+
+    </StackPanel>
+  </ScrollViewer>
+</Window>
+

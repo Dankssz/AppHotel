@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AppHotel2.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        x:Class="AppHotel2.Views.MainWindow"
+        Title="AppHotel2"
+        Width="400" Height="600"
+        x:DataType="vm:MainWindowViewModel"
+
+>
+  <ScrollViewer>
+    <StackPanel Margin="30,0" Spacing="25">
+
+      <Image Source="avares://AppHotel2/Assets/dotnet_bot.png"
+             Height="185"
+             Stretch="Uniform" />
+
+      <TextBlock Text="Hello, World!"
+                 FontSize="24"
+                 FontFamily="Kalam"
+                 FontWeight="Bold" />
+
+      <TextBlock Text="Welcome to &#x0A;.NET Multi-platform App UI"
+                 FontSize="16" />
+
+      <Button Content="{Binding TextoBotao}"
+              Command="{Binding ContarCommand}" />
+
+    </StackPanel>
+  </ScrollViewer>
+</Window>

@@ -1,0 +1,69 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:AppHotel2.ViewModels"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Class="AppHotel2.Views.HospedagemContratada"
+             x:DataType="vm:HospedagemContratadaViewModel"
+             mc:Ignorable="d"
+             Width="400" Height="600"
+             Background="White">
+
+
+  <ScrollViewer>
+    <StackPanel Margin="20" Spacing="10" VerticalAlignment="Center">
+
+      <TextBlock Text="{Binding QuartoSelecionado.Descricao}"
+                 Foreground="{DynamicResource Primary}"
+                 FontFamily="Kalam"
+                 FontSize="50"
+                 TextAlignment="Center" />
+
+      <Border BorderThickness="1" Padding="10" Margin="10" Background="LightGray" CornerRadius="4">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="20">
+          <StackPanel>
+            <TextBlock Text="Adultos:"/>
+            <TextBlock Text="{Binding QntAdultos}" Foreground="{DynamicResource Primary}" />
+          </StackPanel>
+
+          <StackPanel>
+            <TextBlock Text="Crianças:"/>
+            <TextBlock Text="{Binding QntCriancas}" Foreground="{DynamicResource Primary}" />
+          </StackPanel>
+        </StackPanel>
+      </Border>
+
+      <Border BorderThickness="1" Padding="10" Margin="10" Background="LightGray" CornerRadius="4">
+        <Grid ColumnDefinitions="*,*,*"
+              RowDefinitions="Auto,Auto">
+
+          <TextBlock Grid.Row="0" Grid.Column="0" Text="Check-in:"/>
+          <TextBlock Grid.Row="0" Grid.Column="1" Text="Check-out:"/>
+          <TextBlock Grid.Row="0" Grid.Column="2" Text="Estadia:"/>
+
+          <TextBlock Grid.Row="1" Grid.Column="0"
+                     Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
+                     Foreground="{DynamicResource Primary}"/>
+          <TextBlock Grid.Row="1" Grid.Column="1"
+                     Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
+                     Foreground="{DynamicResource Primary}"/>
+          <TextBlock Grid.Row="1" Grid.Column="2"
+                     Text="{Binding Estadia}"
+                     Foreground="{DynamicResource Primary}"/>
+        </Grid>
+      </Border>
+
+      <Border BorderThickness="1" Padding="10" Margin="10" Background="LightGray" CornerRadius="4">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="5">
+          <TextBlock Text="Valor Total:"/>
+          <TextBlock Text="{Binding ValorTotal, StringFormat='{}{0:C}'}"
+                     Foreground="{DynamicResource Primary}"/>
+        </StackPanel>
+      </Border>
+
+      <Button Content="Voltar"
+              HorizontalAlignment="Center"
+              Command="{Binding VoltarCommand}" />
+
+    </StackPanel>
+  </ScrollViewer>
+</UserControl>
