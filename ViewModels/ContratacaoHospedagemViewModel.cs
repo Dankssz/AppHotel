@@ -120,23 +120,21 @@ namespace AppHotel2.ViewModels
 
         private async Task AvancarAsync()
 {
-    var hospedagem = new
-    {
-        QuartoSelecionado = SuiteSelecionada,
-        QntAdultos = Adultos,
-        QntCriancas = Criancas,
-        DataCheckIn = Checkin,
-        DataCheckOut = Checkout,
-        Estadia = (Checkout - Checkin).Days,
-        ValorTotal = (SuiteSelecionada?.ValorDiariaAdulto * Adultos + SuiteSelecionada.ValorDiariaCrianca * Criancas) * (Checkout - Checkin).Days
-    };
+var hospedagem = new HospedagemContratadaViewModel
+{
+    QuartoSelecionado = SuiteSelecionada,
+    QntAdultos = Adultos,
+    QntCriancas = Criancas,
+    DataCheckIn = Checkin,
+    DataCheckOut = Checkout,
+    Estadia = (Checkout - Checkin).Days,
+    ValorTotal = (SuiteSelecionada?.ValorDiariaAdulto * Adultos + SuiteSelecionada.ValorDiariaCrianca * Criancas) * (Checkout - Checkin).Days
+};
 
-    // Abre a janela com o objeto hospedagem como DataContext
-    await Avalonia.Threading.Dispatcher.UIThread.InvokeAsync(() =>
-    {
-        var janela = new Views.HospedagemContratadaWindow(hospedagem);
-        janela.Show();
-    });
-}
+await Avalonia.Threading.Dispatcher.UIThread.InvokeAsync(() =>
+{
+    var janela = new Views.HospedagemContratadaWindow(hospedagem);
+    janela.Show();
+});
     }
 }
